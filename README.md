@@ -1,5 +1,7 @@
-TriMark Corporation
+TriMark Corporation 
+
 Universal Robots cobot 5e logging software
+
 Developed by: Chase Bethany - contact ext 1037 for questions
 
 To run software:
