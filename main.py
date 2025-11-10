@@ -258,9 +258,24 @@ class Dashboard(QMainWindow):
             QSpinBox::down-arrow, QDoubleSpinBox::down-arrow {
                 width: 10px; height: 10px;
             }
+            /* Ensure dropdown list text shows on dark bg */
+            QComboBox QAbstractItemView {
+                background: #12181a;
+                color: #eaeef2;
+                selection-background-color: #243034;
+                selection-color: #eaeef2;
+            }
+
+            /* Tooltips on dark UI */
+            QToolTip {
+                color: #eaeef2;
+                background-color: #1b2528;
+                border: 1px solid #2f3a3e;
+            }
             """)
 
         pg.setConfigOption('background', 'k'); pg.setConfigOption('foreground', 'w')
+        
 
         # DB, jobs, timers, signals
         self.db = None
@@ -522,7 +537,24 @@ class Dashboard(QMainWindow):
 # --------------------------------- main ----------------------------------
 
 if __name__ == "__main__":
+    from PySide6 import QtGui
     app = QApplication(sys.argv)
+    app.setStyle("Fusion")
+    pal = QtGui.QPalette()
+    pal.setColor(QtGui.QPalette.Window,           QtGui.QColor("#0b0f10"))
+    pal.setColor(QtGui.QPalette.WindowText,       QtGui.QColor("#eaeef2"))
+    pal.setColor(QtGui.QPalette.Base,             QtGui.QColor("#12181a"))
+    pal.setColor(QtGui.QPalette.AlternateBase,    QtGui.QColor("#0f1416"))
+    pal.setColor(QtGui.QPalette.Text,             QtGui.QColor("#eaeef2"))
+    pal.setColor(QtGui.QPalette.ToolTipBase,      QtGui.QColor("#1b2528"))
+    pal.setColor(QtGui.QPalette.ToolTipText,      QtGui.QColor("#eaeef2"))
+    pal.setColor(QtGui.QPalette.Button,           QtGui.QColor("#1b2528"))
+    pal.setColor(QtGui.QPalette.ButtonText,       QtGui.QColor("#eaeef2"))
+    pal.setColor(QtGui.QPalette.BrightText,       QtGui.QColor("#ffffff"))
+    pal.setColor(QtGui.QPalette.Link,             QtGui.QColor("#82cfff"))
+    pal.setColor(QtGui.QPalette.Highlight,        QtGui.QColor("#2a72a8"))
+    pal.setColor(QtGui.QPalette.HighlightedText,  QtGui.QColor("#eaeef2"))
+    app.setPalette(pal)
     w = Dashboard()
     w.show()
     sys.exit(app.exec())
