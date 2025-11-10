@@ -5,3 +5,4 @@ pandas==2.2.2
 numpy==1.26.4
 sqlite-utils==3.36
 pyinstaller==6.3.0
+pyqtgraph==0.13.3
