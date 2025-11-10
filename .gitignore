@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+.venv311/
+env/
+venv/
+
+# Build / packaging
+build/
+dist/
+*.spec
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs & local data
+cobot_logger.db
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
